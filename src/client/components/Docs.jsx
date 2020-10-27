@@ -133,11 +133,34 @@ const Docs = ({ currentUser, uploadDocFile,uploadedDocuments }) => {
                           id="docfile"
                           name="docfile"
                           // ref={docInputRef}
-                          ref={register({ required: true})}
+                          ref={register({
+                            required: true,
+                            validate: (value)=>{
+                              const allowedFileTypes = [
+                                "image/jpeg",
+                                "image/jpg",
+                                "image/pjpeg",
+                                "image/png",
+                                "image/x-png",
+                                "image/bmp",
+                                "application/pdf",
+                                "application/msword",
+                                "application/vnd.oasis.opendocument.text",
+                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                "text/rtf",
+                                "application/rtf"
+                              ];
+                              return value && allowedFileTypes.indexOf(value[0].type)>-1;
+                            }
+
+                          })}
                           onChange={e=>setDocFile(e.target.files[0])}/>
                       </div>
                       {_.get("docfile.type", errors) === "required" && (
                         <p>File is required</p>
+                      )}
+                      {_.get("docfile.type", errors) === "validate" && (
+                        <p>File format is not supported</p>
                       )}
                       <div className="file-path-wrapper">
                         <input

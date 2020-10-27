@@ -80,6 +80,8 @@ myServerFunctions['uploadDocFile'] = (docFormData)=>{
 
   console.log('server uploadDocFile called',docFormData);
     return new Promise(async resolve => {
+      docFormData.msg ='Sucessfully uploaded';
+      docFormData.status='success';
         resolve (docFormData);
     })
 
