@@ -30,7 +30,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
     const attrMap = [
       {
         attr:'firstName',
-        label:'First Name',
+        label:'Nombre',
         rules:{ required: true, maxLength: 100 },
         errorKey:'firstName.type',
         errorMessages:{
@@ -40,7 +40,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
       },
       {
         attr:'lastName',
-        label:'Last Name',
+        label:'Apellido',
         rules:{ required: true, maxLength: 100 },
         errorKey:'lastName.type',
         errorMessages:{

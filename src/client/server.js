@@ -1,8 +1,8 @@
 // Convert google script server calls to more familiar promise-based functions
 import mockserver from './mockserver';
-const myServerFunctions = mockserver;
+// const myServerFunctions = mockserver;
 
-// const myServerFunctions = {};
+const myServerFunctions = {};
 
 // identify the reserved functions
 const ignoredMethods = new Set([
@@ -13,22 +13,22 @@ const ignoredMethods = new Set([
 ]);
 
 // get all the public/global function names from the server
-// const serverFunctionNames = Object.keys(google.script.run);
+const serverFunctionNames = Object.keys(google.script.run);
 //
 // // filter out the reserved names
-// const myServerFunctionNames = serverFunctionNames.filter(
-//   serverFunction => !ignoredMethods.has(serverFunction)
-// );
+const myServerFunctionNames = serverFunctionNames.filter(
+  serverFunction => !ignoredMethods.has(serverFunction)
+);
 //
 // // save each function to our new server object using promises
-// myServerFunctionNames.forEach(serverFunctionName => {
-//   myServerFunctions[serverFunctionName] = (...args) =>
-//     new Promise((resolve, reject) => {
-//       google.script.run
-//         .withSuccessHandler(resolve)
-//         .withFailureHandler(reject)
-//         [serverFunctionName](...args);
-//     });
-// });
+myServerFunctionNames.forEach(serverFunctionName => {
+  myServerFunctions[serverFunctionName] = (...args) =>
+    new Promise((resolve, reject) => {
+      google.script.run
+        .withSuccessHandler(resolve)
+        .withFailureHandler(reject)
+        [serverFunctionName](...args);
+    });
+});
 
 export default myServerFunctions;
