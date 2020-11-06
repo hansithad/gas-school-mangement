@@ -4,12 +4,12 @@ import SpreadsheetManager from './SpreadsheetManager';
 
 export default class DriveManager {
 
-  getDocumentListByStudentId =(studentId)=>{
+  getDocumentListByStudentId =(altId)=>{
 
     try {
 
       const rootFolder = DriveApp.getFolderById(sheetData.rootDriveFolder);
-      const folderIterator = rootFolder.getFoldersByName(studentId);
+      const folderIterator = rootFolder.getFoldersByName(altId);
       if(folderIterator.hasNext()){
         const studentRootFolder = folderIterator.next();
 
@@ -53,9 +53,10 @@ export default class DriveManager {
     try {
 
       const studentId = docFormData.studentId;
+      const altId = docFormData.altId;
 
       const rootFolder = DriveApp.getFolderById(sheetData.rootDriveFolder);
-      const folderIterator = rootFolder.getFoldersByName(studentId);
+      const folderIterator = rootFolder.getFoldersByName(altId);
       let currentYearFolder = null;
       const currentYear = (new Date()).getFullYear();
       if(folderIterator.hasNext()){
@@ -72,7 +73,7 @@ export default class DriveManager {
       }
       else {
         //student does not have a student root folder. create student and current year folder
-        const studentRootFolder = rootFolder.createFolder(studentId);
+        const studentRootFolder = rootFolder.createFolder(altId);
         currentYearFolder = studentRootFolder.createFolder(currentYear);
 
       }
@@ -83,6 +84,7 @@ export default class DriveManager {
 
       const extraDetails = JSON.stringify({
         studentId:studentId,
+        altId:altId,
       });
       ssManager.addEventLogRecord(eventLogData.SUBMIT_DOC_ACTION,eventLogData.STATUS_SUCCESS,extraDetails);
       return {
@@ -95,6 +97,7 @@ export default class DriveManager {
 
       const detailedError = JSON.stringify({
         studentId:docFormData.studentId,
+        altId:docFormData.altId,
         functionName:'uploadDocFile',
         error:e
       });

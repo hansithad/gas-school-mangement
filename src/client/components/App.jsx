@@ -69,8 +69,8 @@ class App extends React.Component {
         mimeType: data[0].match(/:(\w.+);/)[1],
         data: data[1],
         docDesc:docDesc,
-        //studentId:this.state.currentUser.studentId
-        studentId:this.state.currentUser.altId
+        studentId:this.state.currentUser.studentId,
+        altId:this.state.currentUser.email.split('_')[0]
       };
 
       const uploadResponse = server.uploadDocFile(obj);

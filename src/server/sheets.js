@@ -26,7 +26,7 @@ export const isValidLoginCredentials = (altId,localId)=>{
     let smUrl = '';
     if(dbResponse.studentObject.studentId != null){
       const driveManager = new DriveManager();
-      uploadedDocuments = driveManager.getDocumentListByStudentId(dbResponse.studentObject.studentId);
+      uploadedDocuments = driveManager.getDocumentListByStudentId(altId);
 
       const sheetManger = new SpreadsheetManager();
       const results = sheetManger.checkSMAcceptStatus(dbResponse.studentObject.studentId);
