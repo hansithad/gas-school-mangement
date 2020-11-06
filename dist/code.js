@@ -817,14 +817,14 @@ var sheets_updateParentContact = function updateParentContact(formData) {
 
   if (dbResponse.state) {
     var successReturnObject = {
-      msg: 'Contact updated successfully',
+      msg: 'Contacto Actualizado Exitosamente!',
       status: 'success',
       parentContactId: dbResponse.parentContactId
     };
     return successReturnObject;
   } else {
     var errorReturnObject = {
-      msg: 'Failed to update parent contact',
+      msg: 'La Actualización Del Contacto Ha Fallado!',
       status: 'error',
       error: dbResponse.msg
     };
@@ -837,14 +837,14 @@ var sheets_uploadDocFile = function uploadDocFile(docFormData) {
 
   if (driveResponse.state) {
     var successReturnObject = {
-      msg: 'File uploaded successfully',
+      msg: 'Archivo Cargado Exitosamente!',
       status: 'success',
       fileId: driveResponse.fileId
     };
     return successReturnObject;
   } else {
     var errorReturnObject = {
-      msg: 'Failed to upload file',
+      msg: 'La Carga Del Archivo Ha Fallado!',
       status: 'error',
       error: driveResponse.msg,
       serverError: driveResponse.error
@@ -879,13 +879,13 @@ var sheets_copyContact = function copyContact(formData) {
 
   if (dbResponse.state) {
     var successReturnObject = {
-      msg: 'Copied existing parent record to this student',
+      msg: 'Se Ha Copiado El Record De Contacto Existente Para El/La EstudianteCopied existing parent record to this student',
       status: 'success'
     };
     return successReturnObject;
   } else {
     var errorReturnObject = {
-      msg: 'Failed to Copy Existing Parent Record',
+      msg: 'La Copia del Record De Contacto Ha Fallado',
       status: 'error',
       error: dbResponse.msg
     };
@@ -898,13 +898,13 @@ var sheets_acceptSchoolManual = function acceptSchoolManual(formData) {
 
   if (sheetResponse.state) {
     var successReturnObject = {
-      msg: 'Your response saved successfully',
+      msg: 'Su Respuesta Se Ha Guardado Exitosamente!',
       status: 'success'
     };
     return successReturnObject;
   } else {
     var errorReturnObject = {
-      msg: 'Failed to saved your response',
+      msg: 'Su Respuesta No Fue Guardada!',
       status: 'error',
       error: sheetResponse.msg,
       serverError: sheetResponse.error
