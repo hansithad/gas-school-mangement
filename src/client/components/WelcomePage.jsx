@@ -23,7 +23,7 @@ const WelcomePage = ({ loginHandler }) => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h4 className="white-text">Welcome to GAS Webapp</h4>
+            <h4 className="white-text">Copesal - ADA</h4>
           </div>
         </div>
         <div className="row">
@@ -31,7 +31,7 @@ const WelcomePage = ({ loginHandler }) => {
             <div className="row">
               <div className="input-field col s12 m6">
                 <input
-                  placeholder="Enter your Alt Id to begin"
+                  placeholder="Ingrese El Código Del Estudiante"
                   id="first_name"
                   name="first_name"
                   type="text"
@@ -39,9 +39,9 @@ const WelcomePage = ({ loginHandler }) => {
                   onChange={e => setAltId(e.target.value)}
                   ref={register({ required: true })}
                 />
-                {errors.first_name && <p>Alt Id is required</p>}
+                {errors.first_name && <p>Código Del Estudiante Es Requerido</p>}
                 <input
-                  placeholder="Enter your Local Id"
+                  placeholder="Ingrese el Número De Identificacion Del Estudiante"
                   id="local_id"
                   name="local_id"
                   type="text"
@@ -49,7 +49,7 @@ const WelcomePage = ({ loginHandler }) => {
                   onChange={e => setLocalId(e.target.value)}
                   ref={register({ required: true })}
                 />
-                {errors.local_id && <p>Local Id is required</p>}
+                {errors.local_id && <p>Número De Identificación Es Requerido</p>}
                 <button type="submit" className="btn" onClick={handleSubmit(onSubmitHandler)}>
                   Login
                 </button>

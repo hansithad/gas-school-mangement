@@ -55,7 +55,7 @@ class App extends React.Component {
       })
       .catch(err => {
         console.log(err);
-        M.toast({html: 'User not found'});
+        M.toast({html: 'Usuario No Encontrado'});
       });
   };
 
@@ -69,7 +69,8 @@ class App extends React.Component {
         mimeType: data[0].match(/:(\w.+);/)[1],
         data: data[1],
         docDesc:docDesc,
-        studentId:this.state.currentUser.studentId
+        //studentId:this.state.currentUser.studentId
+        studentId:this.state.currentUser.altId
       };
 
       const uploadResponse = server.uploadDocFile(obj);
@@ -96,7 +97,7 @@ class App extends React.Component {
         .catch(err => {
           callback();
           console.log(err);
-          M.toast({html: 'file not Uploaded'});
+          M.toast({html: 'El Archivo no fue Cargado'});
         });
     };
     fr.readAsDataURL(docFile);
@@ -121,7 +122,7 @@ class App extends React.Component {
       .catch(err => {
         callback();
         console.log(err);
-        M.toast({html: 'file not Uploaded'});
+        M.toast({html: 'No fue posible guardar su respuesta'});
       });
   };
 
@@ -177,7 +178,7 @@ class App extends React.Component {
         localStorage.setItem('uploadedDocuments',uploadedDocuments);
         return 'success';
       }
-      M.toast({html: 'User not found'});
+      M.toast({html: 'El usuario no fue encontrado'});
       return `${cleanedEmail} not found in our records.`;
     });
   };

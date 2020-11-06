@@ -13,12 +13,12 @@ const SchoolManual = ({ currentUser ,smAccepted,smUrl,acceptSchoolManual })=>{
   const userInteractionsSection = (smAccepted)=>{
     if(!smAccepted){
       return ( <div className="row text-center">
-        <div className="btn" onClick={clickHandler}>I Accept all terms and conditions</div>
+        <div className="btn" onClick={clickHandler}>He leído y Acepto Los Términos Del Manual de Convivencia</div>
       </div>)
     }
     else {
       return( <div className="row text-center">
-        <h4 style={{color:'#1BAC31'}} ><span>&#10003;</span> You have already accepted</h4>
+        <h4 style={{color:'#1BAC31'}} ><span>&#10003;</span>Usted Ya Ha Aceptado Los Terminos Del Manual De Convivencia</h4>
       </div>)
     }
   };
@@ -30,7 +30,7 @@ const SchoolManual = ({ currentUser ,smAccepted,smUrl,acceptSchoolManual })=>{
         <div className="row">
           <div className="col s12 m12 text-center">
             <div>
-              <h6>School Manual</h6>
+              <h6>Manual de Convivencia</h6>
             </div>
             <div>
               <iframe
@@ -38,7 +38,7 @@ const SchoolManual = ({ currentUser ,smAccepted,smUrl,acceptSchoolManual })=>{
                 height={`600px`}
                 frameBorder="0"
                 src={smUrl}>
-                Loading…
+                Cargando…
               </iframe>
             </div>
 

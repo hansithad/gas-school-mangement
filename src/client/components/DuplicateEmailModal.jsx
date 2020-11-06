@@ -32,24 +32,24 @@ class DuplicateEmailModal extends Component {
 
   showDuplicateContact =()=>{
     const fieldNameMap = {
-      'firstName':'First Name',
-      'lastName':'Last Name',
+      'firstName':'Nombre',
+      'lastName':'Apellido',
       'parentEmail':'Email',
-      'cell':'Cell',
-      'address':'Address',
-      'city':'City',
-      'dept':'Dept',
-      'relationship':'Relationship',
-      'id':'ID',
-      'idType':'ID Type',
+      'cell':'Celular',
+      'address':'Direccion',
+      'city':'Ciudad',
+      'dept':'Departamento',
+      'relationship':'Relacíon',
+      'id':'Número de Identificacíon',
+      'idType':'Tipo de Identificacion',
     };
 
     return (
       <table>
         <thead>
         <tr>
-          <th>Field</th>
-          <th>Value</th>
+          <th>Campo</th>
+          <th>Valor</th>
         </tr>
         </thead>
         <tbody >{
@@ -120,8 +120,8 @@ class DuplicateEmailModal extends Component {
               className="modal"
             >
               <div className="modal-content">
-                <h4>Duplicate Email Address</h4>
-                <p>Parent Contact is found with same email address</p>
+                <h4>Correo Electrónico Duplicado</h4>
+                <p>Un Contacto Fue Encontrado Con El Mismo Correo Electrónico</p>
               </div>
               <div className="modal-footer">
                 {/*<a className="modal-close waves-effect  btn-flat" onClick={this.changeEmailAddress}>*/}
@@ -132,10 +132,10 @@ class DuplicateEmailModal extends Component {
                 {/*</a>*/}
 
                 <button className="btn modal-close close" onClick={this.changeEmailAddress}>
-                  Change Email Address
+                  Cambiar Correo Electrónico
                 </button>
                 &nbsp;
-                <button className="btn confirm" onClick={this.useExistingContact}>Use existing contact</button>
+                <button className="btn confirm" onClick={this.useExistingContact}>Usar Contacto Existente</button>
 
               </div>
             </div>
@@ -153,19 +153,19 @@ class DuplicateEmailModal extends Component {
               className="modal"
             >
               <div className="modal-content">
-                <h4>Existing Account Info</h4>
-                <p>Following Information will be used to save as Parent contact</p>
+                <h4>Informacion de Contacto Existente</h4>
+                <p>La Siguiente Información Sera Usada Para Guardar como Contacto</p>
                 <div className={'row'}>
                   <div className={'col s12'}>
                     {this.showDuplicateContact()}
                   </div>
                 </div>
 
-                <p style={{fontWeight:'bold'}}>Are you ok to continue with details?</p>
+                <p style={{fontWeight:'bold'}}>Desea Continuar?</p>
               </div>
               <div className="modal-footer">
 
-                <button className="btn confirm waves-effect" style={{width:'100px'}} onClick={this.copyExistingParentRecordToNewStudent}>Yes</button>
+                <button className="btn confirm waves-effect" style={{width:'100px'}} onClick={this.copyExistingParentRecordToNewStudent}>Sí</button>
                 &nbsp;
                 <button className="btn modal-close waves-effect close grey" style={{width:'100px'}} onClick={this.handleNoButtonClick}>No</button>
 

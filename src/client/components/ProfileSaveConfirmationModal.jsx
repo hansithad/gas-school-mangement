@@ -60,24 +60,24 @@ class ProfileSaveConfirmationModal extends Component {
   showFormInput =()=>{
 
     const fieldNameMap = {
-      'firstName':'First Name',
-      'lastName':'Last Name',
+      'firstName':'Nombre',
+      'lastName':'Apellido',
       'parentEmail':'Email',
-      'cell':'Cell',
-      'address':'Address',
-      'city':'City',
-      'dept':'Dept',
-      'relationship':'Relationship',
-      'id':'ID',
-      'idType':'ID Type',
+      'cell':'Celular',
+      'address':'Dirección',
+      'city':'Ciudad',
+      'dept':'Departamento',
+      'relationship':'Parentezco',
+      'id':'Número de Identificación',
+      'idType':'Tipo de Identificación',
     };
 
     return (
       <table>
         <thead>
           <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th>Campo</th>
+            <th>Valor</th>
           </tr>
         </thead>
         <tbody >{
@@ -106,19 +106,19 @@ class ProfileSaveConfirmationModal extends Component {
               className="modal"
             >
               <div className="modal-content">
-                <h4>Confirmation</h4>
-                <p>Following Information will be saved</p>
+                <h4>Confirmación</h4>
+                <p>La Siguiente Información Será Guardada</p>
                 <div className={'row'}>
                   <div className={'col s12'}>
                     {this.showFormInput()}
                   </div>
                 </div>
 
-                <p style={{fontWeight:'bold'}}>Are you ok to continue with details ?</p>
+                <p style={{fontWeight:'bold'}}>Desea Continuar?</p>
               </div>
 
               <div className="modal-footer">
-                <button className="btn confirm" style={{width:'100px'}} onClick={this.handleYesButtonClick}>Yes</button>
+                <button className="btn confirm" style={{width:'100px'}} onClick={this.handleYesButtonClick}>Sí</button>
                 &nbsp;
                 <button className="btn modal-close close grey" style={{width:'100px'}} onClick={this.handleNoButtonClick}>No</button>
               </div>

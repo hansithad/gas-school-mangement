@@ -63,7 +63,7 @@ export const updateParentContact = (formData) => {
   const dbResponse = databaseManager.updateParentContact(formData);
   if(dbResponse.state){
     const successReturnObject = {
-      msg:'Contact updated successfully',
+      msg:'Contacto Actualizado Exitosamente!',
       status:'success',
       parentContactId : dbResponse.parentContactId
     };
@@ -72,7 +72,7 @@ export const updateParentContact = (formData) => {
   }
   else {
     const errorReturnObject = {
-      msg:'Failed to update parent contact',
+      msg:'La Actualización Del Contacto Ha Fallado!',
       status:'error',
       error:dbResponse.msg
     };
@@ -86,7 +86,7 @@ export const uploadDocFile = (docFormData)=>{
   const driveResponse = driveManager.uploadDocFile(docFormData);
   if(driveResponse.state){
     const successReturnObject = {
-      msg:'File uploaded successfully',
+      msg:'Archivo Cargado Exitosamente!',
       status:'success',
       fileId : driveResponse.fileId,
     };
@@ -95,7 +95,7 @@ export const uploadDocFile = (docFormData)=>{
   }
   else {
     const errorReturnObject = {
-      msg:'Failed to upload file',
+      msg:'La Carga Del Archivo Ha Fallado!',
       status:'error',
       error:driveResponse.msg,
       serverError:driveResponse.error
@@ -150,7 +150,7 @@ export const copyContact = (formData) => {
   const dbResponse = databaseManager.copyContact(formData);
   if(dbResponse.state){
     const successReturnObject = {
-      msg:'Copied existing parent record to this student',
+      msg:'Se Ha Copiado El Record De Contacto Existente Para El/La EstudianteCopied existing parent record to this student',
       status:'success',
     };
 
@@ -158,7 +158,7 @@ export const copyContact = (formData) => {
   }
   else {
     const errorReturnObject = {
-      msg:'Failed to Copy Existing Parent Record',
+      msg:'La Copia del Record De Contacto Ha Fallado',
       status:'error',
       error:dbResponse.msg
     };
@@ -177,7 +177,7 @@ export const acceptSchoolManual = (formData) => {
   const sheetResponse = sheetManager.acceptSchoolManual(formData);
   if(sheetResponse.state){
     const successReturnObject = {
-      msg:'Your response saved successfully',
+      msg:'Su Respuesta Se Ha Guardado Exitosamente!',
       status:'success',
     };
 
@@ -185,7 +185,7 @@ export const acceptSchoolManual = (formData) => {
   }
   else {
     const errorReturnObject = {
-      msg:'Failed to saved your response',
+      msg:'Su Respuesta No Fue Guardada!',
       status:'error',
       error:sheetResponse.msg,
       serverError:sheetResponse.error

@@ -103,7 +103,7 @@ export default function SideNav({
         <MenuItem
           clickHandler={logoutUser}
           closed={minimized}
-          text="logout"
+          text="Salir"
           color="red"
         />
       </div>

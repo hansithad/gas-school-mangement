@@ -34,8 +34,8 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
         rules:{ required: true, maxLength: 100 },
         errorKey:'firstName.type',
         errorMessages:{
-          required:'First Name is required',
-          maxLength:'First Name cannot exceed 100 characters'
+          required:'Nombre Es Requerido',
+          maxLength:'Nombre No Puede Exceder 100 Caracteres'
         }
       },
       {
@@ -44,8 +44,8 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
         rules:{ required: true, maxLength: 100 },
         errorKey:'lastName.type',
         errorMessages:{
-          required:'Last Name is required',
-          maxLength:'Last Name cannot exceed 100 characters'
+          required:'Apellido Es Requerido',
+          maxLength:'Apellido No Puede Exceder 100 Caracteres'
         }
       },
       {
@@ -55,53 +55,54 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
           required: true,
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "invalid email address"
+            message: "Email Invalido"
           },
           maxLength: 100
         },
         errorKey:'parentEmail.type',
         errorMessages:{
-          required:'Email address is required',
-          pattern: "Invalid email address",
-          maxLength:'Email address cannot exceed 100 characters'
+          required:'Email Es Requerido',
+          pattern: "Email Invalido",
+          maxLength:'Email No Puede Exceder 100 caracteres'
         }
       },
       {
         attr:'cell',
-        label:'Cell',
+        label:'Celular',
         rules:{ required: true, maxLength: 100},
         errorKey:'cell.type',
         errorMessages:{
-          required:'Cell is required',
+          required:'Celular Es Requerido',
+          maxLength:'Celular No Puede Exceder 100 caracteres'
         }
       },
       {
         attr:'address',
-        label:'Address',
-        rules:{ required: true, maxLength: 5000 },
+        label:'Dirección',
+        rules:{ required: true, maxLength: 255 },
         errorKey:'address.type',
         errorMessages:{
-          required:'Address is required',
-          maxLength:'Address cannot exceed 20 characters'
+          required:'Dirección Es Requerida',
+          maxLength:'Dirección No Puede Exceder 255 caracteres'
         }
       },
       {
         attr:'city',
-        label:'City',
-        rules:{ required: true, maxLength: 255 },
+        label:'Ciudad',
+        rules:{ required: true, maxLength: 100 },
         errorKey:'city.type',
         errorMessages:{
-          required:'City is required',
-          maxLength:'City cannot exceed 20 characters'
+          required:'Ciudad Es Requerida',
+          maxLength:'Ciudad No Puede Exceder 100 caracteres'
         }
       },
       {
         attr:'dept',
-        label:'Dept',
-        rules:{ required: true, maxLength: 255},
+        label:'Departamento',
+        rules:{ required: true},
         errorKey:'dept.type',
         errorMessages:{
-          required:'Dept is required',
+          required:'Departamento Es Requerido',
         },
         options:[
           "Amazonas",
@@ -140,11 +141,11 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
       },
       {
         attr:'relationship',
-        label:'Relationship',
+        label:'Parentezco',
         rules:{ required: true},
         errorKey:'relationship.type',
         errorMessages:{
-          required:'Relationship is required',
+          required:'Parentezco Es Requerido',
         },
         options: {
           "Father":"Padre",
@@ -159,21 +160,21 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
       },
       {
         attr:'id',
-        label:'ID ',
-        rules:{ required: true, maxLength: 255 },
+        label:'Número de Identificación',
+        rules:{ required: true, maxLength: 50 },
         errorKey:'id.type',
         errorMessages:{
-          required:'ID is required',
-          maxLength:'ID cannot exceed 20 characters'
+          required:'Número de Identificación Es Requerido',
+          maxLength:'Número de Identificación No Puede Exceder 50 Caracteres'
         }
       },
       {
         attr:'idType',
-        label:'ID Type',
+        label:'Tipo de Identificación',
         rules:{ required: true},
         errorKey:'idType.type',
         errorMessages:{
-          required:'ID Type is required',
+          required:'Tipo de Identificación Es Requerido',
         },
         options:[
           "C.C",
@@ -222,7 +223,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
                    ref={register(obj.rules)}
                    className="validate browser-default"
                    onChange={(e) => {updateFormObject(obj.attr, e.target.value )}} >
-            <option  value={''} disabled >Choose your option</option>
+            <option  value={''} disabled >Seleccione Su Opción</option>
             {obj.options.map(o=>{
               return <option key={o} value={o}>{o}</option>
             })}
@@ -250,7 +251,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
                    ref={register(obj.rules)}
                    className="validate browser-default"
                    onChange={(e) => {updateFormObject(obj.attr, e.target.value )}} >
-            <option value="" disabled >Choose your option</option>
+            <option value="" disabled >Seleccione Su Opción</option>
             {Object.entries(obj.options).map(([value,displayValue])=>{
               return <option key={value} value={value}>{displayValue}</option>
             })}
@@ -301,7 +302,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
                    ref={register(obj.rules)}
                    className="validate browser-default"
                    onChange={(e) => {updateFormObject(obj.attr, e.target.value )}} >
-            <option value="" disabled >Choose your option</option>
+            <option value="" disabled >Seleccione Su Opción</option>
             {obj.options.map(o=>{
               return <option key={o} value={o}>{o}</option>
             })}
@@ -406,7 +407,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
 
     })
       .catch((err) => {
-        M.toast({html: 'Failed to Copy Existing Parent Record',classes: "red"});
+        M.toast({html: 'Falló El Copiado del Record de Contacto Existente',classes: "red"});
         updateHasFormSubmit(false);
         document.body.style.overflow='';
       });
@@ -449,7 +450,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
         <div className="row">
           <div className="col s12 m12 text-center">
             <div>
-              <h3>Primary Parent/Guardian’s contact information</h3>
+              <h3>Información De Contacto Del Acudiente Principal</h3>
             </div>
             <div>
               <form className="col s12 m12" data-target="modal1" onSubmit={handleSubmit(updateParentContact)}>
@@ -457,7 +458,7 @@ const Profile = ({ currentUser, updateCurrentUser }) => {
                   {createParentContactInputs()}
                 </div>
                 <div className="row text-center">
-                  <button className="btn" type="submit">Update profile</button>
+                  <button className="btn" type="submit">Actualizar Perfil</button>
                 </div>
               </form>
 

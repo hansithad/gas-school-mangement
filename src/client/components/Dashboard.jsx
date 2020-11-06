@@ -50,7 +50,7 @@ const Dashboard = ({
           className={`col dashboard-section front `}
         >
           <div className="mindhive-logo">
-            <h1>Welcome to GAS Webapp</h1>
+            <h1>Copesal - ADA</h1>
           </div>
         </div>
       </div>

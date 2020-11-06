@@ -13,9 +13,9 @@ const DocumentTable = (props)=>{
       <table>
         <thead>
         <tr>
-          <th>Year</th>
-          <th>Doc Desc</th>
-          <th>Date</th>
+          <th>Año</th>
+          <th>Desc. Doc</th>
+          <th>Fecha</th>
         </tr>
         </thead>
 
@@ -100,7 +100,7 @@ const Docs = ({ currentUser, uploadDocFile,uploadedDocuments }) => {
         <div className="row">
           <div className="col s12 m12 text-center">
             <div>
-              <h6>Upload Requested Documents</h6>
+              <h6>Cargar Documentos Requeridos</h6>
             </div>
             <div>
               <form className="col s12 m12" onSubmit={handleSubmit(onSubmitHandler)}>
@@ -113,21 +113,21 @@ const Docs = ({ currentUser, uploadDocFile,uploadedDocuments }) => {
                       className="materialize-textarea"
                       onChange={e => setDocDesc(e.target.value)}
                       value = {docDesc}
-                      ref={register({ required: true, maxLength: 20 })}
+                      ref={register({ required: true, maxLength: 30 })}
                     ></textarea>
-                    <label htmlFor="docDesc">Document Description</label>
+                    <label htmlFor="docDesc">Descripcíon del Documento</label>
                   </div>
                   {_.get("docDesc.type", errors) === "required" && (
-                    <p>Document Description is required</p>
+                    <p>Descripción de Documento Requerida</p>
                   )}
                   {_.get("docDesc.type", errors) === "maxLength" && (
-                    <p>Document Description cannot exceed 20 characters</p>
+                    <p>Description No Puede Exceder 30 Caracteres</p>
                   )}
 
                   <div className="input-field col s12 m12">
                     <div className="file-field input-field">
                       <div className="btn">
-                        <span>Choose File</span>
+                        <span>Seleccione un Archivo</span>
                         <input
                           type="file"
                           id="docfile"
@@ -157,10 +157,10 @@ const Docs = ({ currentUser, uploadDocFile,uploadedDocuments }) => {
                           onChange={e=>setDocFile(e.target.files[0])}/>
                       </div>
                       {_.get("docfile.type", errors) === "required" && (
-                        <p>File is required</p>
+                        <p>Un Archivo es Requerido</p>
                       )}
                       {_.get("docfile.type", errors) === "validate" && (
-                        <p>File format is not supported</p>
+                        <p>El Formato del Archivo No Es Soportado</p>
                       )}
                       <div className="file-path-wrapper">
                         <input
@@ -177,7 +177,7 @@ const Docs = ({ currentUser, uploadDocFile,uploadedDocuments }) => {
                 </div>
                 <div className="row">
                   <button type="submit" className="btn" >
-                    Upload
+                    Cargar
                   </button>
                   {<div>{serverErrors}</div>}
                 </div>
