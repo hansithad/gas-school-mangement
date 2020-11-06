@@ -31,7 +31,7 @@ class App extends React.Component {
     }
 
     this.state = {
-      page: 'dashboard',
+      page: 'Tablero',
       currentUser: currentUser,
       options: [],
       ready: true,
@@ -227,24 +227,24 @@ class App extends React.Component {
             <div className="col s12">
               {!currentUser.email ? (
                 <WelcomePage loginHandler={this.loginHandler} />
-              ) : page === 'dashboard' ? (
+              ) : page === 'Tablero' ? (
                 <Dashboard currentUser={currentUser} 
                   updateCurrentUser={this.updateCurrentUser} 
                    />
-              )  : page === 'manual' ? (
+              )  : page === 'manual-de-convivencia' ? (
                 <SchoolManual
                   currentUser={currentUser}
                   smAccepted={smAccepted}
                   smUrl={smUrl}
                   acceptSchoolManual={this.acceptSchoolManual}
                 />
-              ) : page === 'docs' ? (
+              ) : page === 'Documentos' ? (
                 <Docs
                   currentUser = {currentUser}
                   uploadDocFile = {this.uploadDocFile}
                   uploadedDocuments = {uploadedDocuments}
                 />
-              ) : page === 'profile' ? (
+              ) : page === 'Contacto' ? (
                 <Profile
                   currentUser = {currentUser}
                   updateCurrentUser = {this.updateCurrentUser}

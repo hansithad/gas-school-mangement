@@ -79,25 +79,25 @@ export default function SideNav({
         <MenuItem
           clickHandler={changePage}
           closed={minimized}
-          text="dashboard"
+          text="Tablero"
           color="blue"
         />
         <MenuItem
           clickHandler={changePage}
           closed={minimized}
-          text="profile"
+          text="Contacto"
           color="purple"
         />
         <MenuItem
           clickHandler={changePage}
           closed={minimized}
-          text="docs"
+          text="Documentos"
           color="yellow"
         />
         <MenuItem
           clickHandler={changePage}
           closed={minimized}
-          text="manual"
+          text="Manual De Convivencia"
           color="orange"
         />
         <MenuItem
